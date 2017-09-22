@@ -3,9 +3,9 @@
 You'll find below few quick commands for executing this sample application inside Openshift:
 1. First of all: fork this repo
 2. Make your edits on your repo
-3. Grab your repo url and go to: https://openshift-master.justcodeon.it
-4. Login with your Github account and ask us for a project through the Hackaton #Slack channel
-5. Once you'll access to a project click: "Add to project"
+3. Join the Hackaton #Slack channel and ask us about the activation of your github account
+4. Grab your repo url and login to: https://openshift-master.justcodeon.it via Github
+5. Once you'll create and access to a project click: "Add to project"
 6. Select Python, then choose desired version
 7. Finally choose a name for your application and past your Github repo url
 
