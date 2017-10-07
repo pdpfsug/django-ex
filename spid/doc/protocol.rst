@@ -8,11 +8,13 @@ SAML è il mezzo (o più specificatamente il framework/protocollo)
 attraverso cui SPID realizza la parte di autenticazione.
 
 
-Le entità coinvolte nel protocollo SAML sono fondamentalmente 3:
+Le entità (**entity**) coinvolte nel protocollo SAML sono fondamentalmente 2:
 
-1. l'utente che richiede l'accesso ad un servizio autenticato
-2. il **Service Provider** (`SP`)che è il servizio web di cui l'utente vuole usufruire
-3. l' **Identity Provider** (`IdP`) che è il server di autenticazione SSO e verifica le credenziali dell'utente
+1. il **Service Provider** (`SP`)che è il servizio web di cui l'utente vuole usufruire
+2. l' **Identity Provider** (`IdP`) che è il server di autenticazione SSO e verifica le credenziali dell'utente
+
+Esempi di IdP sono Poste Italiane, Aruba, etc., quindi probabilmente non lo si dovrà reimplementare.
+
 
 .. figure:: _static/relazione-saml.png
 
@@ -23,6 +25,37 @@ Più in dettaglio le fasi del processo di autenticazione sono mostrate come da s
 .. figure:: _static/fasi-saml.png
 
     Le fasi del processo di autenticazione SAML
+
+
+L'entityID
+----------
+
+L'unico campo richiesto obbligatoriamente nella configurazione di un **Service Provider** è l'entity ID.
+L'entity Id di un Service Provider deve essere univoco all'interno dell'Identity Provider cui si registra,
+per questo di solito si usa il FQDN.
+
+I metadati
+----------
+
+Ogni **entità** del protocollo deve esporre dei metadati e questi sono differenti sia per tipologia che per contenuto.
+Infatti ogni entità può assumere uno dei ruoli:
+
+* SSO Identity Provider
+* SSO Service Provider
+* Authentication Authority
+* Attribute Authority
+* Policy Decision Point
+* Affiliation
+
+e a seconda di quelli assunti specifica dei tag XML differenti ad esempio:
+
+* SPSSODescriptor: per le funzioni di Service Provider
+* IDPSSODescriptor: per le funzioni di Identity Provider
+
+Nell'SP si devono configurare i metadati dall'IdP e l'IdP deve avere i metadati dell'SP
+
+Altro
+-----
 
 Ulteriori informazioni posso essere trovate:
 
