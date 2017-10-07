@@ -34,6 +34,18 @@ L'unico campo richiesto obbligatoriamente nella configurazione di un **Service P
 L'entity Id di un Service Provider deve essere univoco all'interno dell'Identity Provider cui si registra,
 per questo di solito si usa il FQDN.
 
+L'AssertionConsumerService
+-------------------------------
+
+Almeno un elemento di questo tipo deve essere definito nei metadati di un **Service Provider**.
+
+`<AssertionConsumerService>` [One or More]
+One or more elements that describe indexed endpoints that support the profiles of the
+Authentication Request protocol defined in [SAMLProf]. All service providers support at least one
+such endpoint, by definition.
+
+The <md:AssertionConsumerService> element is used to configure handlers that are responsible for consuming SAML assertions; that is, they process an assertion according to a profile, extract its contents, create a new user session, and typically produce a cookie to represent the session.
+
 I metadati
 ----------
 
@@ -47,7 +59,7 @@ Infatti ogni entità può assumere uno dei ruoli:
 * Policy Decision Point
 * Affiliation
 
-e a seconda di quelli assunti specifica dei tag XML differenti ad esempio:
+e a seconda di quelli assunti specifica degli elementi XML differenti ad esempio:
 
 * SPSSODescriptor: per le funzioni di Service Provider
 * IDPSSODescriptor: per le funzioni di Identity Provider
