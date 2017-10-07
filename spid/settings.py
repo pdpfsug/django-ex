@@ -43,6 +43,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'debug_toolbar',
+    'django_saml2_auth',
     'base'
 )
 
@@ -110,3 +111,28 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+SAML2_AUTH = {
+    # Required setting
+    'METADATA_AUTO_CONF_URL': 'https://idp.ssocircle.com/meta-idp.xml',
+
+    # Optional settings below
+    'DEFAULT_NEXT_URL': '/admin',  # Custom target redirect URL after the user get logged in. Default to /admin if not set. This setting will be overwritten if you have parameter ?next= specificed in the login URL.
+    'NEW_USER_PROFILE': {
+        'USER_GROUPS': [],  # The default group name when a new user logs in
+        'ACTIVE_STATUS': True,  # The default active status for new users
+        'STAFF_STATUS': True,  # The staff status for new users
+        'SUPERUSER_STATUS': False,  # The superuser status for new users
+    },
+    'ATTRIBUTES_MAP': {  # Change Email/UserName/FirstName/LastName to corresponding SAML2 userprofile attributes.
+        'email': 'Email',
+        'username': 'UserName',
+        'first_name': 'FirstName',
+        'last_name': 'LastName',
+    },
+    'TRIGGER': {
+        'CREATE_USER': 'path.to.your.new.user.hook.method',
+        'BEFORE_LOGIN': 'path.to.your.login.hook.method',
+    },
+    'ASSERTION_URL': 'http://spid-django-pdp-spid-django.apps.justcodeon.it/', # Custom URL to validate incoming SAML requests against
+}
