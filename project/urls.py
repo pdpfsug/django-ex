@@ -22,7 +22,7 @@ urlpatterns = [
     url(r'^admin/login/$', django_saml2_auth.views.signin),
 
     # Examples:
-    # url(r'^$', 'spid.views.home', name='home'),
+    # url(r'^$', 'project.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
 
     # url(r'^$', index),

@@ -59,7 +59,7 @@ MIDDLEWARE_CLASSES = (
     'whitenoise.middleware.WhiteNoiseMiddleware',
 )
 
-ROOT_URLCONF = 'spid.urls'
+ROOT_URLCONF = 'project.urls'
 
 TEMPLATES = [
     {
