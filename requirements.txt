@@ -9,7 +9,7 @@ cryptography==2.0.3
 decorator==4.1.2
 Django==1.8.18
 django-debug-toolbar==1.5
--e git+https://github.com/pdpfsug/django-saml2-auth.git#egg=django_saml2_auth
+-e git+https://github.com/pdpfsug/django-saml2-auth.git@0beb76cd449f53d0835b054ae0836042b2a4b47c#egg=django_saml2_auth
 docutils==0.14
 future==0.16.0
 gunicorn==19.4.5
