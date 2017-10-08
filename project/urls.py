@@ -2,6 +2,7 @@ from django.conf.urls import include, url
 from django.contrib import admin
 
 import django_saml2_auth.views
+import django_spid.views
 
 # from welcome.views import index, health
 
@@ -25,7 +26,7 @@ urlpatterns = [
     # url(r'^$', 'project.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
 
-    # url(r'^$', index),
+    url(r'^$', django_spid.views.index),
     # url(r'^health$', health),
     url(r'^admin/', include(admin.site.urls)),
 ]
