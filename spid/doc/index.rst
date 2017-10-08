@@ -10,8 +10,8 @@ Welcome to Django SPID plugin's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-    overview
-    protocol
+   overview
+   protocol
 
 
 Indices and tables
