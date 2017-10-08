@@ -8,6 +8,8 @@ import django_spid.views
 
 urlpatterns = [
 
+    url(r'^admin/', include(admin.site.urls)),
+
     # These are the SAML2 related URLs. You can change "^saml2_auth/" regex to
     # any path you want, like "^sso_auth/", "^sso_login/", etc. (required)
     url(r'^saml2_auth/', include('django_saml2_auth.urls')),
@@ -28,5 +30,5 @@ urlpatterns = [
 
     url(r'^$', django_spid.views.index),
     # url(r'^health$', health),
-    url(r'^admin/', include(admin.site.urls)),
+    # url(r'^admin/', include(admin.site.urls)),
 ]
